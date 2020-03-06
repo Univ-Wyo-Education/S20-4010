@@ -1,4 +1,4 @@
-# Sprint 2019  Study Guide For Midterm
+# 2020  Study Guide For Midterm
 
 Terms with explanation
 -----------------------------------------------------------------------
