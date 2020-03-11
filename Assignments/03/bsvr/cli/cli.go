@@ -211,14 +211,14 @@ func (cc *CLI) SendFundsTransaction(
 
 	//
 	// Pseudo Code:
-	// 1. Calcualte the total value of the account 'from'.  Call this 'tot'.
+	// 1. Calculate the total value of the account 'from'.  Call this 'tot'.
 	//    You can do this by calling `cc.GetTotalValueForAccount(from)`.
-	// 2. If the total, `tot` is less than the amount that is to be transfered,
+	// 2. If the total, `tot` is less than the amount that is to be transferred,
 	//	  `amount` then fail.  Return an error "Insufficient funds".  The person
 	//    is trying to bounce a check.
 	// 3. Get the list of output tranactions.
 	//    Look in the file .../transaactions/tx.go for the TxOutputType.  These
-	//	  need to be collected so that you.
+	//	  need to be collected so that you have them.
 	//    Call this 'oldOutputs'.
 	// 4. Find the set of values that are pointed to in the index.  These are the
 	//    values for the 'from' account.  Delete this from the index.  These are the
@@ -237,10 +237,10 @@ func (cc *CLI) SendFundsTransaction(
 	//	  to do this.
 	// 7. Save the new inputs in the tx.Input.
 	// 8. Create the new output for the 'to' address.  Call `transactions.CreateTxOutputWithFunds`.
-	//    Call this `txOut`.    Take `txOut` and append it to the tranaction by calling
+	//    Call this `txOut`.    Take `txOut` and append it to the transaction by calling
 	//    `transactions.AppendTxOutputToTx`.
-	// 9. Calcualte the amount of "change" - if it is larger than 0 then we owe 'from'
-	//    change.  Create a 2nd tranaction with the change.  Append to the tranaction the
+	// 9. Calculate the amount of "change" - if it is larger than 0 then we owe 'from'
+	//    change.  Create a 2nd transaction with the change.  Append to the transaction the
 	//    TxOutputType.
 	// 10. Return
 	//
