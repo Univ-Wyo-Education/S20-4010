@@ -1,6 +1,6 @@
 {
 	"Comment": "Config to talk to your server",
-	"Host": "http://127.0.0.1:9000",
+	"Host": "http://192.168.0.44:9191",
 	"WalletPath":"./wallet-data",
 	"LoginAcct": "0x7e3aFEc048bC7be745d0fA0F5af97D3978C40E9A",
 	"LoginPin": "237801"

@@ -12,11 +12,9 @@ test002:
 
 # get value of account
 test003:
-	go build
 	./wallet-client --cmd acct-value --acct 0x9d41e5938767466af28865e1c33071f1561d57a8
 
 test004:
-	go build
 	./wallet-client --cmd validate-signed-message --acct 0x7e3aFEc048bC7be745d0fA0F5af97D3978C40E9A \
 		--password 78S2tAIfk4VP2xv2
 

@@ -126,11 +126,11 @@ func main() {
 
 	case "validate-signed-message": // call the server with a signed message.  Verify if the message is properly signed.
 		// Replace the call below with your code - call your own function.
-		// InstructorValidateSignedMessage(*Acct, *Password)
+		InstructorValidateSignedMessage(*Acct, *Password)
 
 	case "send-funds-to":
 		// Replace the call below with your code - call your own function.
-		// InstructorSendFundsTo(*From, *To, *Password, *Memo, *Amount)
+		InstructorSendFundsTo(*From, *To, *Password, *Memo, *Amount)
 
 	default:
 		usage()
