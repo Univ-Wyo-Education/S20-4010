@@ -43,7 +43,7 @@ type outputGenerate struct {
 var commandGenerate = cli.Command{
 	Name: "generate",
 	Usage: `generate new keyfile
-					./key-test generate --default-name --random-pass
+					./sig-test generate --default-name --random-pass
 			or
 					./sig-test generate --privatekey File --default-name
 `,

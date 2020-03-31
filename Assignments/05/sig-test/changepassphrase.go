@@ -23,17 +23,16 @@ import (
 	"time"
 
 	"github.com/ethereum/go-ethereum/accounts/keystore"
-
 	"github.com/urfave/cli"
 )
 
 var commandChangePassphrase = cli.Command{
 	Name: "change-passphrase",
 	Usage: `change the passphrase on a keyfile
-                 key-test changepassphrase --newname <newKeyFileName.json> <ExistingKeyFile.json> 
+                 sig-test changepassphrase --newname <newKeyFileName.json> <ExistingKeyFile.json> 
                  if <newKeyFileName.json> is "-" then the existing file will be overwritten with the new one.
                  You will be prompted for the passwords - unles you supply the --password and --newPassword flags.
-				 key-test changepassphrase --newname <NewFileName.json> --password <FileWithOldPassword> --newPassword <fileWithNewPw> <ExistingKeyFile.json>
+				 sig-test changepassphrase --newname <NewFileName.json> --password <FileWithOldPassword> --newPassword <fileWithNewPw> <ExistingKeyFile.json>
 `,
 	ArgsUsage: "<keyfile>",
 	Description: `
@@ -52,10 +51,10 @@ Change the passphrase/password of a keyfile.
 var commandChangePassword = cli.Command{
 	Name: "change-password",
 	Usage: `change the passphrase on a keyfile
-                 key-test change-password --newname <newKeyFileName.json> <ExistingKeyFile.json> 
+                 sig-test change-password --newname <newKeyFileName.json> <ExistingKeyFile.json> 
                  if <newKeyFileName.json> is "-" then the existing file will be overwritten with the new one.
                  You will be prompted for the passwords - unles you supply the --password and --newPassword flags.
-				 key-test change-password --newname <NewFileName.json> --password <FileWithOldPassword> --newPassword <fileWithNewPw> <ExistingKeyFile.json>
+				 sig-test change-password --newname <NewFileName.json> --password <FileWithOldPassword> --newPassword <fileWithNewPw> <ExistingKeyFile.json>
 `,
 	ArgsUsage: "<keyfile>",
 	Description: `

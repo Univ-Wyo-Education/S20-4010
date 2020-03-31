@@ -21,10 +21,9 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"github.com/urfave/cli"
-
 	"github.com/ethereum/go-ethereum/accounts/keystore" //
 	"github.com/ethereum/go-ethereum/crypto"            //
+	"github.com/urfave/cli"
 )
 
 /*
@@ -41,7 +40,7 @@ type outputInspect struct {
 var commandInspect = cli.Command{
 	Name: "inspect",
 	Usage: `inspect a keyfile
-                 key-test inspect --priave <KeyFile.json> 
+                 sig-test inspect --priave <KeyFile.json> 
                  Print out the Address, Public Key, Private Key for a keyfile.
 `,
 	ArgsUsage: "<KeyFile.json>",

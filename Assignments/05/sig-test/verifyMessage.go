@@ -28,9 +28,9 @@ import (
 var commandVerifyMessage = cli.Command{
 	Name: "verify-message",
 	Usage: `verify the signature of a signed message
-                ./key-test very-message Address Signature "message"
+                ./sig-test very-message Address Signature "message"
                     or
-                ./key-test very-message --json Address Signature "message"
+                ./sig-test very-message --json Address Signature "message"
 `,
 	ArgsUsage: "<address> <signature> <message>",
 	Description: `
