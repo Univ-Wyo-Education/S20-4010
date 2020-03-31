@@ -10,7 +10,7 @@ test001:
 test002:
 	./wallet-client --cmd list-accts
 
-# get value of account
+# get value of to account
 test003:
 	./wallet-client --cmd acct-value --acct 0x9d41e5938767466af28865e1c33071f1561d57a8
 
@@ -25,3 +25,6 @@ test005:
 		--amount 55 --memo "memo:test005"
 
 
+# get value of account (of the from account
+test006:
+	./wallet-client --cmd acct-value --acct 0x7e3aFEc048bC7be745d0fA0F5af97D3978C40E9A 

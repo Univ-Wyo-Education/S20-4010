@@ -3,10 +3,11 @@ all:
 	go build
 
 sign1: 
+	echo "Password Is Uknwon - just type something (should not be able to sign)"
 	./sig-test sign-message UTC--2019-04-03T02-41-35.103996908Z--6E11C0aC0d8fEa2B53D70b32f9b01077a4B66A59 "some data to sign"
 
 sign2: 
-	echo Password Is: 78S2tAIfk4VP2xv2
+	echo Password Is: 78S2tAIfk4VP2xv2 Cut and Paste It
 	./sig-test sign-message UTC--2018-08-27T00-03-50.008098186Z--7e3aFEc048bC7be745d0fA0F5af97D3978C40E9A "some data to sign"
 
 verify1:
