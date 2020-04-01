@@ -25,6 +25,8 @@ import (
 	"path/filepath"
 	"regexp"
 	"strings"
+
+	"github.com/pschlump/godebug"
 )
 
 type ConfigData struct {
@@ -219,7 +221,9 @@ func DoGet(uri string, args ...string) (status int, rv string) {
 	}
 	url_q := qq.String()
 
-	// fmt.Printf("Client-AT: %s, url=%s\n", godebug.LF(), url_q)
+	if db18 {
+		fmt.Printf("Client-AT: %s, url=%s\n", godebug.LF(), url_q)
+	}
 
 	res, err := http.Get(url_q)
 	if err != nil {
@@ -274,3 +278,5 @@ func GetFilenames(dir string) (filenames, dirs []string) {
 	}
 	return
 }
+
+var db18 = true
