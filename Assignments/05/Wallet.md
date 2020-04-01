@@ -126,15 +126,33 @@ The "sign" message part is missing.  You will need to implement this.
 	4. Send the request to the server with `msg`, `msgStr`, `signature`.
 This is in the client-main.go near line 133.
 
+
+### Pseudo code for the send funds function on the client
+
+1. If the Memo parameter is "" then put in a constant memo - somthing like "none".
+2. Use 'RequiredOption' fucntion to get `from`, `to`, `amount` from the command line.
+3. Format a JSON message to sign
+```
+	msg := fmt.Sprintf(`{"from":%q, "to":%q, "amount":%d}`, From, To, Amount)
+```
+4. read in the key file for the `From` account using getKeyFileFromAcct.
+5. Read in a password for this using getPassphrase
+6. Call GenerateSigntature to sign the message.
+7. Generate the URL to send - the communication end point is `/api/send-funds-to`.  It requires "from", "to", "amount", "signature", "msg", and "memo" paramters to be passed.
+8. Call DoGet with the set of paramters.
+9. Check the return status of the "GET" call, 200 indicates success, all other codes indicate an error.
+
+
+
 ## The provided server code.
 
-The server should run and do lots of stuff.  You need to implement the
+The server should run and do lots of stuff.  You need to test the
 section where the signature is actually validated.  This is in
 `../05/cli/svr-lib.go` line 115.  If the signature is valid and
-the message is valid then return `isValid` as true.  If an error occurs,
+the message is valid then it should return `isValid` as true.  If an error occurs,
 for example a bad address or some other error during the validation process,
 then return `isValid` as false and the error. Most of the code for this part of the 
-assignment should be adapted from signMessage.go in sig-test. 
+assignment has been adapted from signMessage.go in sig-test. 
 
 ## Helpful things (Pay special attention to this section!)
 
@@ -178,3 +196,6 @@ This is optional.  It has not been implemented but it would be useful.  It is in
 Draft version 0.0.1 - Sat Sep 29 07:38:22 MDT 2018
 
 Draft version 0.0.2 - Fri Mar  8 10:13:05 MST 2019 - Revised with --addr param added.
+
+Updated: Tue Mar 31 20:02:29 MDT 2020
+

@@ -112,6 +112,6 @@ func (cc *CLI) ValidateSignature(addrStr, signature, msg string) (isValid bool, 
 	}
 	_ = addr
 
-	// Implement Validation of Signature at this point.
+	// Test Validation of Signature at this point.
 	return cc.InstructorValidateSignature(addrStr, signature, msg)
 }

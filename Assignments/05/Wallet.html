@@ -873,15 +873,32 @@ This is in the client-main.go near line 133.</li>
 </ol></li>
 </ol>
 
+<h3>Pseudo code for the send funds function on the client</h3>
+
+<ol>
+<li>If the Memo parameter is &ldquo;&rdquo; then put in a constant memo - somthing like &ldquo;none&rdquo;.</li>
+<li>Use &lsquo;RequiredOption&rsquo; fucntion to get <code>from</code>, <code>to</code>, <code>amount</code> from the command line.</li>
+<li>Format a JSON message to sign
+<code>
+	msg := fmt.Sprintf(`{&quot;from&quot;:%q, &quot;to&quot;:%q, &quot;amount&quot;:%d}`, From, To, Amount)
+</code></li>
+<li>read in the key file for the <code>From</code> account using getKeyFileFromAcct.</li>
+<li>Read in a password for this using getPassphrase</li>
+<li>Call GenerateSigntature to sign the message.</li>
+<li>Generate the URL to send - the communication end point is <code>/api/send-funds-to</code>.  It requires &ldquo;from&rdquo;, &ldquo;to&rdquo;, &ldquo;amount&rdquo;, &ldquo;signature&rdquo;, &ldquo;msg&rdquo;, and &ldquo;memo&rdquo; paramters to be passed.</li>
+<li>Call DoGet with the set of paramters.</li>
+<li>Check the return status of the &ldquo;GET&rdquo; call, 200 indicates success, all other codes indicate an error.</li>
+</ol>
+
 <h2>The provided server code.</h2>
 
-<p>The server should run and do lots of stuff.  You need to implement the
+<p>The server should run and do lots of stuff.  You need to test the
 section where the signature is actually validated.  This is in
 <code>../05/cli/svr-lib.go</code> line 115.  If the signature is valid and
-the message is valid then return <code>isValid</code> as true.  If an error occurs,
+the message is valid then it should return <code>isValid</code> as true.  If an error occurs,
 for example a bad address or some other error during the validation process,
 then return <code>isValid</code> as false and the error. Most of the code for this part of the
-assignment should be adapted from signMessage.go in sig-test.</p>
+assignment has been adapted from signMessage.go in sig-test.</p>
 
 <h2>Helpful things (Pay special attention to this section!)</h2>
 
@@ -924,6 +941,8 @@ This is optional.  It has not been implemented but it would be useful.  It is in
 <p>Draft version 0.0.1 - Sat Sep 29 07:38:22 MDT 2018</p>
 
 <p>Draft version 0.0.2 - Fri Mar  8 10:13:05 MST 2019 - Revised with &ndash;addr param added.</p>
+
+<p>Updated: Tue Mar 31 20:02:29 MDT 2020</p>
 
 </div>
 

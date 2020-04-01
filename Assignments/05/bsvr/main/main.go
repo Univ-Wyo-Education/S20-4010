@@ -33,7 +33,7 @@ var TestSendFunds = flag.Bool("test-send-funds", false, "test sending funds from
 var ShowBalance = flag.Bool("show-balance", false, "Show the balance on an account")
 var ListAccounts = flag.Bool("list-accounts", false, "List the addresses of known accounts")
 
-var ServerHostPort = flag.String("server", "", "http://127.0.0.1:9090 is a good example - if set then a server will be started.   Non server options are ignored.")
+var ServerHostPort = flag.String("server", "", "http://127.0.0.1:9191 is a good example - if set then a server will be started.   Non server options are ignored.")
 var Dir = flag.String("dir", "", "Direcotry to serve files from if server is enabled.")
 var ServerCfgFlag = flag.String("scf", "{}", "Arbitrary server config data in JSON.")
 
