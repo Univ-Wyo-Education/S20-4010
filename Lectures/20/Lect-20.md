@@ -7,6 +7,17 @@ Hitachi Solutions Partners With ConsenSys to Bring Enterprise Ethereum to the Ja
 
 ## Videos
 
+[Lect-20-4010-pt1-news.mp4 - https://youtu.be/rI0__miduU4](https://youtu.be/rI0__miduU4)<br>
+[Lect-20-4010-pt2-sig-test.mp4 - https://youtu.be/d_pqnaf_WoI](https://youtu.be/d_pqnaf_WoI)<br>
+[Lect-20-pt3-client-server.mp4 - https://youtu.be/qqg36mFY-I0](https://youtu.be/qqg36mFY-I0)<br>
+[Lect-20-4010-pt4.mp4 - https://youtu.be/qy5P2X7YJkA](https://youtu.be/qy5P2X7YJkA)<br>
+
+From S3 for download (same videos as above)
+
+[http://uw-s20-2015.s3.amazonaws.com/Lect-20-4010-pt1-news.mp4](http://uw-s20-2015.s3.amazonaws.com/Lect-20-4010-pt1-news.mp4)<br>
+[http://uw-s20-2015.s3.amazonaws.com/Lect-20-4010-pt2-sig-test.mp4](http://uw-s20-2015.s3.amazonaws.com/Lect-20-4010-pt2-sig-test.mp4)<br>
+[http://uw-s20-2015.s3.amazonaws.com/Lect-20-4010-pt4.mp4](http://uw-s20-2015.s3.amazonaws.com/Lect-20-4010-pt4.mp4)<br>
+[http://uw-s20-2015.s3.amazonaws.com/Lect-20-pt3-client-server.mp4](http://uw-s20-2015.s3.amazonaws.com/Lect-20-pt3-client-server.mp4)<br>
 
 ## Overview
 
