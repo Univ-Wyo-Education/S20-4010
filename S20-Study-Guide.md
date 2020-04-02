@@ -1,9 +1,9 @@
-# Sprint 2019  Study Guide For Midterm
+# 2020  Study Guide For Midterm
 
 Terms with explanation
 -----------------------------------------------------------------------
 
-The mid term test is on Friday, March 15. All You need to bring to class that day are a
+The mid term test is on Friday, March 13. All You need to bring to class that day are a
 couple of pens or pencils.  Standard Academic rules apply. The test will be 20 multiple
 choice/ fill in the blank. An example follows: 
 

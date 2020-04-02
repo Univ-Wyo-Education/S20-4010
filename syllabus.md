@@ -19,7 +19,7 @@
 
 ## Instructor contact information:
 
-Email: pschlump@uwyo.edu or pschlump@gmail.com 
+Email: pschlump@uwyo.edu or pschlump@gmail.com
 
 ## Office hours:
 
@@ -36,7 +36,7 @@ is programmed in Haskell.
 ## General requirements and expectations for the course
 
 You must demonstrate working homework to the instructor or to the class grader to pass the class (no matter how many
-points you get). For code developed in Go, test cases will be supplied. 
+points you get). For code developed in Go, test cases will be supplied.
 
 ## Required examinations and assignments
 
@@ -101,7 +101,7 @@ a limited programming background I will work with you.
 
 
 
-This is an approximate schedule.  Updates will be noted in class.  
+This is an approximate schedule.  Updates will be noted in class.
 
 | Date                            | No | Topics                                                                     |
 |---------------------------------|:--:|:---------------------------------------------------------------------------|
@@ -124,10 +124,8 @@ This is an approximate schedule.  Updates will be noted in class.
 | Fri&nbsp;Feb&nbsp;14,&nbsp;2020 | 09 | Transactions / Data Storage                                                |
 |                                 |    |                                                                            |
 | Mon&nbsp;Feb&nbsp;17,&nbsp;2020 | 10 | Public Private Keys                                                        |
-|                                 |    | Homework 3 Due - Client Server and Transactions.                           |                                     
 | Wed&nbsp;Feb&nbsp;19,&nbsp;2020 | 11 | ECDSA & RSA encryption, Quantum Computers and NTRU.                        |
 | Fri&nbsp;Feb&nbsp;21,&nbsp;2020 | 12 | Digital Security.                                                          |
-|                                 |    | Homework 4 Due - Wallet.                                                   |
 |                                 |    |                                                                            |
 | Mon&nbsp;Feb&nbsp;24,&nbsp;2020 | 13 | Blockchain Economics; Blockchain in non-profs, Proof of trust, 			|
 |                                 |    | Tracking of donations, Software economics; Normal technology cycles, SQL 	|
@@ -135,7 +133,10 @@ This is an approximate schedule.  Updates will be noted in class.
 | Wed&nbsp;Feb&nbsp;26,&nbsp;2020 | 14 | Smart Contracts, Solidity(Ethereum), Haskell(IOHK)                         |
 | Fri&nbsp;Feb&nbsp;28,&nbsp;2020 | 15 | Standard Contracts, Simple tokens, Standard tokens, ERC-20, ERC-721,       |
 |                                 |    | ERC-1203.                                                                  |
-|                                 |    | Homework 5 Due - Signed Data - Stand Alone Version (pt1).			        |
+|                                 |    |                                                                            |
+|                                 |    | Homework 3 Due - Client Server and Transactions.                           | 
+|                                 |    | Homework 4 Due - Wallet.                                                   |
+|                                 |    | Homework 5 Due - Signed Data - with client server.        			        |
 |                                 |    |                                                                            |
 | Mon&nbsp;Mar&nbsp;02,&nbsp;2020 | 16 | Finance and Terms, Accounting(history)- Double Entry Book keeping,         |
 |                                 |    | Cooking the books.                                                         |
@@ -154,35 +155,34 @@ This is an approximate schedule.  Updates will be noted in class.
 |                                 |    | development system.                                                        |
 | Wed&nbsp;Mar&nbsp;25,&nbsp;2020 | 23 | Smart Contracts in detail.                                                 |
 | Fri&nbsp;Mar&nbsp;27,&nbsp;2020 | 24 | What are dApp and web3, Interoperability between chains.                   |
-|                                 |    | Homework 6 Due - Signed Data (pt2) Client Server.                          |
 |                                 |    |                                                                            |
-| Mon&nbsp;Mar&nbsp;30,&nbsp;2020 | 25 | Patterns and How to Learn New Languages                                    |
+| Mon&nbsp;Mar&nbsp;30,&nbsp;2020 | 25 | Patterns and How to Learn New Languages: Solidity.                         |
 | Wed&nbsp;Apr&nbsp;01,&nbsp;2020 | 26 | More on ERC-20 and ERC-721 and ERC-1203                                    |
 | Fri&nbsp;Apr&nbsp;03,&nbsp;2020 | 27 | Creating wealth, Jobs in blockchain, Blockchain economics.                 |
-|                                 |    | Homework 7 Due - Test-Net ERC-20 based contract.                           |
+|                                 |    | Homework 6 Due - Metadata contract - signed documents.                     |
 |                                 |    |                                                                            |
 | Mon&nbsp;Apr&nbsp;06,&nbsp;2020 | 28 | Concurrency in Go, Go routines, Locks, Channels                            |
-| Wed&nbsp;Apr&nbsp;08,&nbsp;2020 | 29 | How Solidity works, the Basics and Solidity Contracts                      |
-| Fri&nbsp;Apr&nbsp;10,&nbsp;2020 | 30 | Go closures, Contract languages                                            |
-|                                 |    | Homework 8 Due - To Be Determined.                                         |
+| Wed&nbsp;Apr&nbsp;08,&nbsp;2020 | 29 | How ECDSA works, the Basics of public key security.                        |
+| Fri&nbsp;Apr&nbsp;10,&nbsp;2020 | 30 | Functional programming and contracts (Begining of IOHK stuff)              |
+|                                 |    | Homework 7 Due - Test-Net ERC-20/ERC-721 based contract.                   |
 |                                 |    |                                                                            |
 | Mon&nbsp;Apr&nbsp;13,&nbsp;2020 | 31 | Insurance companies and Non fungible Tokens                                |
 | Wed&nbsp;Apr&nbsp;15,&nbsp;2020 | 32 | Testing and Test Output                                                    |
-| Fri&nbsp;Apr&nbsp;17,&nbsp;2020 | 33 | Solidity Contracts                                                         |
+| Fri&nbsp;Apr&nbsp;17,&nbsp;2020 | 33 | Automatic Verification of Code and Contracts                               |
+|                                 |    | Homework 8 Due - Familiarize with IOHK/Marlow.                             |
 |                                 |    |                                                                            |
 | Mon&nbsp;Apr&nbsp;20,&nbsp;2020 | 34 | Tokens; Simple and Standard                                                |
 | Wed&nbsp;Apr&nbsp;22,&nbsp;2020 | 35 | Zero Knowledge Proofs, Digital Security, zk-SNAKRS, Byzantine Generals     |
-|                                 |    | problem and the Honey-Badger solution.                                     |       
+|                                 |    | problem and the Honey-Badger solution.                                     |
 | Fri&nbsp;Apr&nbsp;24,&nbsp;2020 | 36 | IOHK’s system.  Nix-OS and Contracts.                                      |
-|                                 |    | Homework 9 Due - To Be Determined.                                         |
+|                                 |    | Homework 9 Due - IOHK/Marlow based state machine contract.                 |
 |                                 |    |                                                                            |
 | Mon&nbsp;Apr&nbsp;27,&nbsp;2020 | 37 | Legal Ramifications of blockchain, ICOs 506(d), Subpart (s)                |
 | Wed&nbsp;Apr&nbsp;29,&nbsp;2020 | 38 | Personal Security Friction vs Access.                                      |
 | Fri&nbsp;May&nbsp;01,&nbsp;2020 | 39 | More on Security and Encryption                                            |
-|                                 |    | Homework 10 Due - To Be Determined.                                        |
 |                                 |    |                                                                            |
-| Mon&nbsp;May&nbsp;04,&nbsp;2020 | 40 | TBD                                                                        |
-| Wed&nbsp;May&nbsp;06,&nbsp;2020 | 41 | TBD                                                                        |
+| Mon&nbsp;May&nbsp;04,&nbsp;2020 | 40 | Extra Class - In case we have to miss a lecture.                           |
+| Wed&nbsp;May&nbsp;06,&nbsp;2020 | 41 | Extra Class - In case we have to miss a lecture.                           |
 | Fri&nbsp;May&nbsp;08,&nbsp;2020 | 42 | Final Review                                                               |
 
 
@@ -192,10 +192,10 @@ This is an approximate schedule.  Updates will be noted in class.
 
 
 
-                         
+
 
 ## Title IX – Duty to Report
- 
+
 The University of Wyoming faculty are committed to helping create a safe learning environment for all students and for
 the university as a whole. If you have experienced any form of gender or sex-based discrimination or harassment,
 including sexual assault, sexual harassment, relationship violence, or stalking, know that help and support are
@@ -231,7 +231,7 @@ The University of Wyoming values an educational environment that is diverse, equ
 that students and faculty bring to class, including age, country of origin, culture, disability, economic class,
 ethnicity, gender identity, immigration status, linguistic, political affiliation, race, religion, sexual orientation,
 veteran status, worldview, and other social and cultural diversity is valued, respected, and considered a resource for
-learning. 
+learning.
 
 ## Disability Support
 
