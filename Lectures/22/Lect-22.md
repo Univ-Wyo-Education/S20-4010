@@ -4,12 +4,9 @@ Insurance Companies
 
 ## News
 
-1. HW 4 - has an error in the auto-test - pull a new copy from git.
-2. Apr 10, 11th - I will be traveling for business. Hemp Oil.
-3. GM Prevention of Synthetic Identity Fraud (GM Financial to track Real people with blockchain). 
-4. Abu Dhabi, Belgim and Netherlands - common link for shipping tracking containers with blockchain.
-5. The Prime Minister of Malta, Joseph Muscat, has said that cryptocurrencies are the “inevitable future of money,”
-the Washington Post has an article:
+1. The World Economic Forum Highlighted Blockchain and Digitization to Address COVID-19 Supply Chain Disruption
+2. Older article on China and Blockchain.
+The Washington Post has an article:
 [https://www.washingtonpost.com/opinions/global-opinions/china-is-racing-ahead-of-the-united-states-on-blockchain/2019/03/07/c1e7776a-4116-11e9-9361-301ffb5bd5e6_story.html](https://www.washingtonpost.com/opinions/global-opinions/china-is-racing-ahead-of-the-united-states-on-blockchain/2019/03/07/c1e7776a-4116-11e9-9361-301ffb5bd5e6_story.html)
 
 "The grand strategic competition between the United States and China will be won
@@ -19,19 +16,31 @@ China is way ahead on the core technology that will underpin those systems:
 blockchain."
 
 
-# HW 5 -  If you are working on Windows
+# Homework 6  - Document Metadata Contract
 
-You will need gcc.  I instaled from: http://tdm-gcc.tdragon.net/
+There are an entire class of blockchain applications that are based on "meta" data
+and proof of accurate data - where the actual data is stored off-chain but the
+"Proof" of accuracy is on chain.  For data that is not small - video, sound, images
+or data that has special searching requirements like ground-truth (GPS coordinate)
+data this is a very viable solution.
 
-# HW 5 - if you are working on Mac
+Data in the database then needs to be immutable - and then chunks of it are hashed
+and stored in some known location.  For example Amazon S3 - Simple Storage Subsystem
+or IPFS.    Then an auditor can go to the chain, find all the hashes of the data,
+take the files of data that are store and roll a database forward from the beginning
+to the current and audit the correctness of the data.
 
-You will need to have 'brew' installed - google 'install brew' and then install:
+The current work between BeefChain - a Wyoming company and IOHK on supply chain for
+animals works this way. 
 
-```
-	brew install gmp openssl llvm
-```
+There is an ISO 9000 / IOS 9002 document company that uses this approach.
 
+See the homework - for the interface.
 
+The other common classes of blockchain applications are "token" based and "payment"
+based. (ERC-20, or ERC-721).  For example the Colorado inmate parole system is
+based on ERC-721 contracts.   Rational land sale is based on an ERC-721 contract.
+These contracts are used for tracking individual "things" or counts of "things".
 
 
 
@@ -110,5 +119,11 @@ How it Works?  Why are they still in finesse?
 
 
 www.bcg.com - First blockchain only insurance company.
+
+
+
+# Copyright
+
+Copyright (C) University of Wyoming, 2020.
 
 
