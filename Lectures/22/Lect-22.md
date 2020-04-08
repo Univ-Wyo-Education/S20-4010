@@ -2,6 +2,20 @@
 Insurance Companies
 ===================
 
+Videos:
+
+[https://youtu.be/pVCqrFMs7zA - Lect-22-4010-5010-cosc-Pt1.mp4](https://youtu.be/pVCqrFMs7zA)<br>
+[https://youtu.be/Hr_8yYii9Mc - Lect-22-4010-5010-pt2-Insurance.mp4](https://youtu.be/Hr_8yYii9Mc)<br>
+[https://youtu.be/IBNtM5GzgIE - Lect-22-4010-5010-pt3-KYC-KYI-Tracking.mp4](https://youtu.be/IBNtM5GzgIE)<br>
+[https://youtu.be/fG0iVUIeFiI - Lect-22-4010-5010-pt4-hw.mp4](https://youtu.be/fG0iVUIeFiI)<br>
+
+From Amazon S3 - for download (same as youtube videos)
+
+[http://uw-s20-2015.s3.amazonaws.com/Lect-22-4010-5010-cosc-Pt1.mp4](http://uw-s20-2015.s3.amazonaws.com/Lect-22-4010-5010-cosc-Pt1.mp4)<br>
+[http://uw-s20-2015.s3.amazonaws.com/Lect-22-4010-5010-pt2-Insurance.mp4](http://uw-s20-2015.s3.amazonaws.com/Lect-22-4010-5010-pt2-Insurance.mp4)<br>
+[http://uw-s20-2015.s3.amazonaws.com/Lect-22-4010-5010-pt3-KYC-KYI-Tracking.mp4](http://uw-s20-2015.s3.amazonaws.com/Lect-22-4010-5010-pt3-KYC-KYI-Tracking.mp4)<br>
+[http://uw-s20-2015.s3.amazonaws.com/Lect-22-4010-5010-pt4-hw.mp4](http://uw-s20-2015.s3.amazonaws.com/Lect-22-4010-5010-pt4-hw.mp4)<br>
+
 ## News
 
 1. The World Economic Forum Highlighted Blockchain and Digitization to Address COVID-19 Supply Chain Disruption
