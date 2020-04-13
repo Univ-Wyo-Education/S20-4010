@@ -1,6 +1,20 @@
 Lecture 24 - Zero Knowledge Identification System
 =====================================
 
+## Videos
+
+[https://youtu.be/x1papRZw_68 - Lect-24-4010-5010-pt1.mp4](https://youtu.be/x1papRZw_68)<br>
+[https://youtu.be/tDBTTqFuSw0 - Lect-24-4010-5010-pt2.mp4](https://youtu.be/tDBTTqFuSw0)<br>
+[https://youtu.be/ifDcsPigIv0 - Lect-24-4010-5010-pt3.mp4](https://youtu.be/ifDcsPigIv0)<br>
+
+From Amazon S3 - for download (same as youtube videos)
+
+[http://uw-s20-2015.s3.amazonaws.com/Lect-24-4010-5010-pt1.mp4](http://uw-s20-2015.s3.amazonaws.com/Lect-24-4010-5010-pt1.mp4)<br>
+[http://uw-s20-2015.s3.amazonaws.com/Lect-24-4010-5010-pt2.mp4](http://uw-s20-2015.s3.amazonaws.com/Lect-24-4010-5010-pt2.mp4)<br>
+[http://uw-s20-2015.s3.amazonaws.com/Lect-24-4010-5010-pt3.mp4](http://uw-s20-2015.s3.amazonaws.com/Lect-24-4010-5010-pt3.mp4)<br>
+
+## Reading
+
 Paper:
 [https://arrow.dit.ie/cgi/viewcontent.cgi?article=1031&context=itbj](https://arrow.dit.ie/cgi/viewcontent.cgi?article=1031&context=itbj)
 
