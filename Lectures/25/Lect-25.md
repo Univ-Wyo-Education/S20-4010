@@ -1,5 +1,4 @@
-
-Solidity Contracts
+Lecture 25 - More on Solidity Contracts
 =========================
 
 ## How Solidity Works
