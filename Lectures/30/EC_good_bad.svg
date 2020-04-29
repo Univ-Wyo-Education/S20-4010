@@ -744,7 +744,6 @@ Export[&quot;file.svg&quot;, xml, &quot;XML&quot;]
     <clipPath
        id="cp31">
       <polygon
-       style="fill:#ff0000;"
          id="polygon319"
          points="348.313,287.313 348.313,371.313 432.313,371.313 432.313,287.313 348.313,287.313 " />
     </clipPath>
