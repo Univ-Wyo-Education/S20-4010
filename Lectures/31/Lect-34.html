@@ -706,123 +706,17 @@ ol {
 
 <div class="markdown-body">
 
-<h1>Lecture 32 - Honey Badger Byzantine - Generation of t-ECDSA Keys</h1>
+<h1>Honey Badger Byzantine</h1>
 
 <h2>Videos</h2>
 
-<p><a href="https://youtu.be/bDwzs18Sd9M">https://youtu.be/bDwzs18Sd9M - Lect-32-4010&ndash;pt1.mp4</a><br>
-<a href="https://youtu.be/rQ2Pvatfk9U">https://youtu.be/rQ2Pvatfk9U - Lect-32-4010&ndash;pt2.mp4</a><br>
-<a href="https://youtu.be/uowXHM8qaYM">https://youtu.be/uowXHM8qaYM - Lect-32-4010&ndash;pt3-Homework-Marlowe.mp4</a><br></p>
+<p><a href="https://youtu.be/jMePVYNH_Rg">https://youtu.be/jMePVYNH_Rg - Lect-34-4010-pt1-Threshold-Signatures.mp4</a><br>
+<a href="https://youtu.be/H_MNY4ro_sM">https://youtu.be/H_MNY4ro_sM - Lect-34-4010-pt2-crypto-currencies.mp4</a><br></p>
 
 <p>From Amazon S3 - for download (same as youtube videos)</p>
 
-<p><a href="http://uw-s20-2015.s3.amazonaws.com/Lect-32-4010--pt1.mp4">http://uw-s20-2015.s3.amazonaws.com/Lect-32-4010&ndash;pt1.mp4</a><br>
-<a href="http://uw-s20-2015.s3.amazonaws.com/Lect-32-4010--pt2.mp4">http://uw-s20-2015.s3.amazonaws.com/Lect-32-4010&ndash;pt2.mp4</a><br>
-<a href="http://uw-s20-2015.s3.amazonaws.com/Lect-32-4010--pt3-Homework-Marlowe.mp4">http://uw-s20-2015.s3.amazonaws.com/Lect-32-4010&ndash;pt3-Homework-Marlowe.mp4</a><br></p>
-
-<h2>News</h2>
-
-<ol>
-<li>China is officially testing a cryptocurrency as a national currency.</li>
-<li>Australia is using a blockchain solution for registration of clinical trials.</li>
-</ol>
-
-<h3>Threshold Encryption</h3>
-
-<p><img src="matrix.png" alt="N equastions in N Unknowns" /></p>
-
-<p><br></p>
-
-<p><img src="./th01.png" alt="Threshold Encryption" /></p>
-
-<p>(t, n) threshold encryption. The easiest way to explain it is to say that we have n players; each one has the same
-public key, but also each player has its unique share of the secret key. So, on this slide we have secret_share 1,
-secret_share 2, secret_share 3…secret_share n, and signers — if you have a message encrypted under the public
-key, signers must cooperate using a special communication protocol that does not expose the secret key in order to
-decrypt it.</p>
-
-<h3>Commitment Scheme</h3>
-
-<p><img src="./cs01.png" alt="Commitment Scheme" /></p>
-
-<p>Let&rsquo;s say that Alice and Caroline are playing a coin flipping game. Alice chooses the side of the coin, evaluates a
-commitment to her choice, and sends the commitments to Caroline. Now Caroline throws the coin into the air and says what
-the result is. Next, Alice sends a special value called decommitment key, which allows Caroline to evaluate the
-commitment and to see if the value that was initially chosen by Alice is really what she’s saying now.</p>
-
-<p>The decommitment key allows to validate the commitment, but also has a nice feature, allowing to define unconditionally
-hiding schemes. So, no matter what Caroline does, no matter how high computing power she has, she cannot guess the value
-Alice committed to without having the decommitment key. She cannot do it from just the commitment.</p>
-
-<h3>Key Generation First</h3>
-
-<p>Assume we have n signers, each signer is initialized with the additively homomorphic threshold encryption scheme, and
-this happens in the setup phase:</p>
-
-<p><img src="./te01.png" alt="Key Generation Setup" /></p>
-
-<p>This is from <a href="https://eprint.iacr.org/2016/013.pdf"> Threshold-optimal DSA/ECDSA signatures and <br>
-an application to Bitcoin wallet security <br>
-Rosario Gennaro, Steven Goldfeder, and Arvind Narayanan https://eprint.iacr.org/2016/013.pdf</a>
-The paper is 42 pages long.</p>
-
-<p>We have two types of keys. We have threshold additively homomorphic encryption scheme keys which are initialized in the
-set-up phase and we also have t-ECDSA key that we use for signing. And this second key is what we are going to generate
-now. For the additively homomorphic threshold encryption scheme, we just assume that it’s done in the set-up phase.</p>
-
-<p>Key Generation it’s easy, because we can use a zero-knowledge proof and the commitnment to detect if one party misbehaves.
-If you have a bad party then replace them.</p>
-
-<p>Use a trusted dealer that generates a set of keys, distributes them, then forgets them.
-Or execute some kind of a dealerless protocol in order to execute the keys by all group members together.
-See <a href="https://link.springer.com/chapter/10.1007/978-3-642-17955-6_4">https://link.springer.com/chapter/10.<sup>1007</sup>&frasl;<sub>978</sub>-3-642-17955-6_4</a></p>
-
-<h3>Key Generation : Choose a random &lsquo;x&rsquo;</h3>
-
-<p>In the first step, each player chooses a random integer x, which will be used as a secret key share of that player:</p>
-
-<p><img src="./te02.png" alt="Choose Randome X" /></p>
-
-<p><code>x</code> cannot be greater than <code>q</code>. <code>q</code> is the elliptic curve cardinality, so it’s the number of points elliptic curve
-has. On all of the slides, <code>q</code> stands for the cardinality of the elliptic curve. Each player computes <code>y</code> as <code>g</code> to the
-power of <code>x</code>. This is an elliptic curve operation, and basically, we multiply curve’s generator point by <code>x</code>. This is
-a notation you will often find for groups, but since elliptic curve is a group we can use it also here.</p>
-
-<h3>Key Generation : Generate Commitments and Broadcast</h3>
-
-<p>Then, each player computes a commitment to this value, and in the second round, publishes this commitment to all of the
-players in the group:</p>
-
-<p><img src="./te03.png" alt="Commitments Generated" /></p>
-
-<h3>Key Generation: Reveal encrypted &lsquo;x&rsquo;</h3>
-
-<p>Each player reveals <code>x</code> in an encrypted form, it’s <code>α</code> (alpha) below:</p>
-
-<p><img src="./te04.png" alt="Reveal encrypted X" /></p>
-
-<p>Encryption is done with the additively homomorphic encryption scheme we initialized in the set-up phase. What’s more,
-each player reveals the public key share, the decommitment key, and the zero-knowledge proof stating that all those
-values together make sense. This allows for a validation of the commitment, but also allows all players to see if all
-those shares that the player just revealed together makes some sense.</p>
-
-<p>So, the zero-knowledge proof says that there exists a number <code>x</code> such that curve’s generator point multiplied by <code>x</code>
-gives point <code>y</code>, and <code>y</code> is public at this moment because it was just revealed, and that if we decrypt the value α that
-we have just published — it’s the encrypted secret key — we’ll get that number <code>x</code>.</p>
-
-<p>Of course, it’s a zero-knowledge proof, so it is not possible to guess what <code>x</code> really is, but what we say here is
-that it lies in the range from (-q³, q³) , and since <code>q</code> is the cardinality of the elliptic curve, this range is
-really huge.</p>
-
-<h3>Key Generation: Generate ECDSA final key</h3>
-
-<p>All signers use the add operation of the additively homomorphic threshold scheme to produce the final t-ECDSA key, so
-all of the encrypted shares of x can be added:</p>
-
-<p><img src="./te05.png" alt="Now Generate Key" /></p>
-
-<p>We get the secret key in an encrypted form, all revealed public shares of y can be added, and as a result, we have the
-public key. Addition operation here is just addition of elliptic curve points, so it’s easy.</p>
+<p><a href="http://uw-s20-2015.s3.amazonaws.com/Lect-34-4010-pt1-Threshold-Signatures.mp4">http://uw-s20-2015.s3.amazonaws.com/Lect-34-4010-pt1-Threshold-Signatures.mp4</a><br>
+<a href="http://uw-s20-2015.s3.amazonaws.com/Lect-34-4010-pt2-crypto-currencies.mp4">http://uw-s20-2015.s3.amazonaws.com/Lect-34-4010-pt2-crypto-currencies.mp4</a><br></p>
 
 <h2>Signature</h2>
 
@@ -890,7 +784,7 @@ threshold encryption.</p>
 <p>At the end, each party commits to all those parameters, and in the round 4 generated parameters are revealed, along with
 the zero-knowledge proof stating that they make sense together:</p>
 
-<p><img src="./si11a.png" alt="Zero Knowledge Proff of r and w are correct" /></p>
+<p><img src="./si11a.png" alt="Zero Knowledge Proof of r and w are correct" /></p>
 
 <p>Having all those parameters from all the group members we can add them together, just like we did after the round 2. We
 sum up all <code>k</code> shares, all <code>c</code> shares, all <code>w</code> shares.  We evaluate parameter <code>r</code> as a sum of all <code>rᵢ</code> shares and
@@ -956,9 +850,39 @@ parameter <code>r</code> evaluated in round 4 together make the signature:</p>
 
 <p><img src="./si30.png" alt="Decrypt results get s and r" /></p>
 
-<h1>Copyright</h1>
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
 
-<p>Copyright &copy; University of Wyoming, 2020.</p>
+<h2>What is going on with Crypto Currencies</h2>
+
+<ol>
+<li>Lot&rsquo;s of borrowing in US</li>
+<li>Interest rates go up - US gov owns lots of debt</li>
+<li>Devalue the Currency</li>
+<li>Move value into hard assets</li>
+<li>Drive up value of hard assets</li>
+</ol>
+
+<p><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br></p>
 
 </div>
 

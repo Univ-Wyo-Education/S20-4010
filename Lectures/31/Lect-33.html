@@ -706,255 +706,278 @@ ol {
 
 <div class="markdown-body">
 
-<h1>Lecture 32 - Honey Badger Byzantine - Generation of t-ECDSA Keys</h1>
+<h1>Lecture 33 - Byzantine Fault Tolerance</h1>
 
 <h2>Videos</h2>
 
-<p><a href="https://youtu.be/bDwzs18Sd9M">https://youtu.be/bDwzs18Sd9M - Lect-32-4010&ndash;pt1.mp4</a><br>
-<a href="https://youtu.be/rQ2Pvatfk9U">https://youtu.be/rQ2Pvatfk9U - Lect-32-4010&ndash;pt2.mp4</a><br>
-<a href="https://youtu.be/uowXHM8qaYM">https://youtu.be/uowXHM8qaYM - Lect-32-4010&ndash;pt3-Homework-Marlowe.mp4</a><br></p>
+<p><a href="https://youtu.be/wItXpoCIurc">https://youtu.be/wItXpoCIurc - Lect-33-4010-BFT-pt1.mp4</a><br>
+<a href="https://youtu.be/_bhabm9Iy5k">https://youtu.be/_bhabm9Iy5k - Lect-33-4010-BFT-pt2.mp4</a><br>
+<a href="https://youtu.be/hbnVxTb8zoo">https://youtu.be/hbnVxTb8zoo - Lect-33-4010-pt3-BFT.mp4</a><br>
+<a href="https://youtu.be/7_2yrIOFm-Q">https://youtu.be/7_2yrIOFm-Q - Lect-33-4010-pt4.mp4</a><br></p>
 
 <p>From Amazon S3 - for download (same as youtube videos)</p>
 
-<p><a href="http://uw-s20-2015.s3.amazonaws.com/Lect-32-4010--pt1.mp4">http://uw-s20-2015.s3.amazonaws.com/Lect-32-4010&ndash;pt1.mp4</a><br>
-<a href="http://uw-s20-2015.s3.amazonaws.com/Lect-32-4010--pt2.mp4">http://uw-s20-2015.s3.amazonaws.com/Lect-32-4010&ndash;pt2.mp4</a><br>
-<a href="http://uw-s20-2015.s3.amazonaws.com/Lect-32-4010--pt3-Homework-Marlowe.mp4">http://uw-s20-2015.s3.amazonaws.com/Lect-32-4010&ndash;pt3-Homework-Marlowe.mp4</a><br></p>
+<p><a href="http://uw-s20-2015.s3.amazonaws.com/Lect-33-4010-BFT-pt1.mp4">http://uw-s20-2015.s3.amazonaws.com/Lect-33-4010-BFT-pt1.mp4</a><br>
+<a href="http://uw-s20-2015.s3.amazonaws.com/Lect-33-4010-BFT-pt2.mp4">http://uw-s20-2015.s3.amazonaws.com/Lect-33-4010-BFT-pt2.mp4</a><br>
+<a href="http://uw-s20-2015.s3.amazonaws.com/Lect-33-4010-pt3-BFT.mp4">http://uw-s20-2015.s3.amazonaws.com/Lect-33-4010-pt3-BFT.mp4</a><br>
+<a href="http://uw-s20-2015.s3.amazonaws.com/Lect-33-4010-pt4.mp4">http://uw-s20-2015.s3.amazonaws.com/Lect-33-4010-pt4.mp4</a><br></p>
 
-<h2>News</h2>
+<h2>Papers</h2>
+
+<p>Original paper by Leslie Lamport, Robert Shostak and Marshall Pease, 1982:
+<a href="https://people.eecs.berkeley.edu/~luca/cs174/byzantine.pdf">https://people.eecs.berkeley.edu/~luca/cs174/byzantine.pdf</a></p>
+
+<p>Practical Byzantine Fault Tolerance and Proactive Recovery&rdquo; by Miguel Castro and Barbara Liskov:
+<a href="http://www.pmg.csail.mit.edu/papers/bft-tocs.pdf">http://www.pmg.csail.mit.edu/papers/bft-tocs.pdf</a></p>
+
+<p>Honney Badger BFT, 2016:
+<a href="https://eprint.iacr.org/2016/199.pdf">https://eprint.iacr.org/2016/199.pdf</a></p>
+
+<p>Go Implementation:
+<a href="https://github.com/anthdm/hbbft">https://github.com/anthdm/hbbft</a></p>
+
+<h2>What is Byzantine Fault Tollerance</h2>
+
+<p>A system for recovery and data distribution with worst possible failures and
+communication failure.</p>
 
 <ol>
-<li>China is officially testing a cryptocurrency as a national currency.</li>
-<li>Australia is using a blockchain solution for registration of clinical trials.</li>
+<li>Nodes can fail.</li>
+<li>Nodes can be malicious.</li>
+<li>Communication can fail.</li>
+<li>Communication can be malicious.</li>
 </ol>
 
-<h3>Threshold Encryption</h3>
+<p>What can go wrong?</p>
+
+<ol>
+<li>Crash - or worst - Crash - recover - Crash - recover &hellip;.</li>
+<li>Corrupted data - data rot - disk failure - database error.</li>
+<li>Service is gone - You depend on a google service that was deprecated.</li>
+<li>User - query of death - A user - legitimate runs a query that is bad, really really bad.</li>
+<li>Denial of Service Attack - malicious.</li>
+<li>Lots of people like you - crushed by load (Flash Crowd, Viral etc)</li>
+<li>A server went down - cascade failure</li>
+<li>Fails for a customer but not you</li>
+<li>Lost data - it&rsquo;s gone</li>
+<li>Security Breach</li>
+<li>Network Failures - Google reports that 99% of database failures are really network failure.</li>
+<li>The Back Hoe!</li>
+<li>The Squirl!</li>
+<li>Fire / Flood / Earthquake / Volcano.</li>
+<li>Your system has caused a fire</li>
+<li>Data center raided by FBI - &ldquo;Hackers Game&rdquo;.</li>
+<li>Hacked node - Yep -had that.</li>
+<li>Non-Hack - then  - system administrator intended to run <code>rm -rf ./dev</code> instead ran <code>rm -rf /dev</code>.</li>
+<li>Runaway automation &ndash; Example $400 million error</li>
+<li>This message <code>Got server HTTP error: HTTP Error 404: Not Found. Retrying fragment 7 (attempt 1 of 10)...</code></li>
+<li>Certificate Expire - They only last for a limited amount of time!  Let&rsquo;s Encrypt and ACME protocol.</li>
+<li>Power is off - network is off - etc.</li>
+<li>Shift in workload&hellip;.</li>
+<li>Index in database got dropped (ran out of space etc.)</li>
+<li>Personal change ( person quit, died etc.)</li>
+<li>System commits suicide - License Key Timeout.</li>
+<li>Missing source - You think all is well but you find out that the version of the code you have is out of date and you DON&rsquo;T have the current version.</li>
+<li>Windows leeks memory - and it crashes - Expedia.</li>
+<li>Random variation in &hellip; Power, Load, etc.</li>
+<li>Library you are using - has a flaw!</li>
+<li>Network is just slow.</li>
+<li>Email crashes entire network - England&rsquo;s NHS - and &ldquo;Reply All&rdquo;.</li>
+</ol>
+
+<p>Things that are in-frequent are not worth automation.  Things that happen often are.
+Look at a ROI model - and how much real costs are.  Take labor time 1.53 for burdened
+then look at amount of down time.</p>
+
+<p>Generally 2 different kind of failures:</p>
+
+<ol>
+<li>Stop Failure: When a node fails - it might have a redundant node and recover but the point is that the node stooped for a while.
+This could also be just a communication failure.   You really can&rsquo;t tell the difference between a node failing and the nodes
+communication failing.</li>
+<li>Now all the other failures - nodes doing what is not correct (traitor) - sends message A to one peer, B to another peer.
+This may not be a malicious failure.  It could be just an error in transmission.  It could also be that you have a
+malicious node operator - or - a hacked node.</li>
+</ol>
+
+<h2>Two Generals Problem</h2>
+
+<ol>
+<li>2 generals with armies.</li>
+<li>Opponent is larger than each of the 2 armies but smaller than the combined 2 armies.</li>
+<li>Incentive to cheat.</li>
+</ol>
+
+<p>Come up with a solution (Like TCP/IP Syn / SynAck / Ack)</p>
+
+<pre><code>
+    [General A] ------&gt; Syn -&gt;&gt;&gt;&gt;&gt; [General B]
+                Attack In Morning        |
+                                         |
+                                         |
+    [General A] &lt;&lt;&lt;&lt;- Yep Let's Do It &lt;--+
+        |
+        |
+        +--- Ack (Got Message) ---&gt; [Genreal B]
+
+</code></pre>
+
+<p>With the network as the &ldquo;opponent&rdquo; there is no way to solve this.  <em>General B</em>
+never knows until a successful <code>Ack</code> what state he should be in.</p>
+
+<p>There is no way to get consensus.</p>
+
+<p>Let&rsquo;s reverse this and let&rsquo;s assume that the nodes are the corrupting element.</p>
+
+<p>Lamport&rsquo;s &lsquo;82 paper has a solution.  Very Ugly - Very Slow.  Speed is <code>O(n^(f+1))</code>.
+Puts proven bounds on number of bad nodes and what can be done to solve this.</p>
+
+<p>Is this valuable:</p>
+
+<ol>
+<li>Boeing 767, 777 both use a solution for fly by wire.</li>
+<li>Blockchains/Cryptocurrency is using this.</li>
+<li>Data distribution over a faulty network.</li>
+<li>IBM Hyperledger (Merk, IBM Food Trust etc).</li>
+<li>Zilliqa uses an optimized version pBFT with a PoW round every ~100 blocks.</li>
+<li>Ripple (XRP) uses a modified pBFT solution.</li>
+<li>MasterCard&rsquo;s internal blockchain (5000 TPS) uses a pBFT</li>
+</ol>
+
+<p>One of the big keys to this is getting the Assumptions correct.  Clearly not solvable
+with just 2 nodes.  What about with more nodes?  What failure cases are you going to
+ignore and what cases are you going to program for?</p>
+
+<p>In pBFT - it turns out that half+1 of the nodes agreeing is a &ldquo;consensus&rdquo; - in the
+generals case it is either attack-or-wait.  This will not mean that &ldquo;attack&rdquo; is the
+true/correct result or that wait is the true/correct result.  What it meas is that
+the system has reached a &ldquo;consensus&rdquo; decisions.   To the half+1 you need more
+than 2 nodes.  Let&rsquo;s talk about 5 nodes, A..F.</p>
 
-<p><img src="matrix.png" alt="N equastions in N Unknowns" /></p>
+<h2>Multi Generals and Consensus</h2>
 
-<p><br></p>
+<p>After Consensus:</p>
 
-<p><img src="./th01.png" alt="Threshold Encryption" /></p>
+<pre><code>General A         - A D D A A
+General B         - A D D A A
+General C         - D A A A A
+General D         - A D D A A
+General E         - A A D A A
+                    ^ &lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; This one!
+</code></pre>
 
-<p>(t, n) threshold encryption. The easiest way to explain it is to say that we have n players; each one has the same
-public key, but also each player has its unique share of the secret key. So, on this slide we have secret_share 1,
-secret_share 2, secret_share 3…secret_share n, and signers — if you have a message encrypted under the public
-key, signers must cooperate using a special communication protocol that does not expose the secret key in order to
-decrypt it.</p>
+<p>Communicate 1 decision from 1 general to all the all the other generals.  Solves 1 communication.</p>
 
-<h3>Commitment Scheme</h3>
+<p>How many traitors can we deal with?</p>
+
+<p>Trivial Case - 1 general.</p>
 
-<p><img src="./cs01.png" alt="Commitment Scheme" /></p>
+<p>2 - general.  If 1 traitor, then no conses.</p>
+
+<p>Leader general says Attack, then how if you as a non-leader know.  You could ask your piers.
+Walk through cases.  Ask Piers</p>
 
-<p>Let&rsquo;s say that Alice and Caroline are playing a coin flipping game. Alice chooses the side of the coin, evaluates a
-commitment to her choice, and sends the commitments to Caroline. Now Caroline throws the coin into the air and says what
-the result is. Next, Alice sends a special value called decommitment key, which allows Caroline to evaluate the
-commitment and to see if the value that was initially chosen by Alice is really what she’s saying now.</p>
-
-<p>The decommitment key allows to validate the commitment, but also has a nice feature, allowing to define unconditionally
-hiding schemes. So, no matter what Caroline does, no matter how high computing power she has, she cannot guess the value
-Alice committed to without having the decommitment key. She cannot do it from just the commitment.</p>
-
-<h3>Key Generation First</h3>
-
-<p>Assume we have n signers, each signer is initialized with the additively homomorphic threshold encryption scheme, and
-this happens in the setup phase:</p>
-
-<p><img src="./te01.png" alt="Key Generation Setup" /></p>
-
-<p>This is from <a href="https://eprint.iacr.org/2016/013.pdf"> Threshold-optimal DSA/ECDSA signatures and <br>
-an application to Bitcoin wallet security <br>
-Rosario Gennaro, Steven Goldfeder, and Arvind Narayanan https://eprint.iacr.org/2016/013.pdf</a>
-The paper is 42 pages long.</p>
-
-<p>We have two types of keys. We have threshold additively homomorphic encryption scheme keys which are initialized in the
-set-up phase and we also have t-ECDSA key that we use for signing. And this second key is what we are going to generate
-now. For the additively homomorphic threshold encryption scheme, we just assume that it’s done in the set-up phase.</p>
-
-<p>Key Generation it’s easy, because we can use a zero-knowledge proof and the commitnment to detect if one party misbehaves.
-If you have a bad party then replace them.</p>
-
-<p>Use a trusted dealer that generates a set of keys, distributes them, then forgets them.
-Or execute some kind of a dealerless protocol in order to execute the keys by all group members together.
-See <a href="https://link.springer.com/chapter/10.1007/978-3-642-17955-6_4">https://link.springer.com/chapter/10.<sup>1007</sup>&frasl;<sub>978</sub>-3-642-17955-6_4</a></p>
-
-<h3>Key Generation : Choose a random &lsquo;x&rsquo;</h3>
-
-<p>In the first step, each player chooses a random integer x, which will be used as a secret key share of that player:</p>
-
-<p><img src="./te02.png" alt="Choose Randome X" /></p>
-
-<p><code>x</code> cannot be greater than <code>q</code>. <code>q</code> is the elliptic curve cardinality, so it’s the number of points elliptic curve
-has. On all of the slides, <code>q</code> stands for the cardinality of the elliptic curve. Each player computes <code>y</code> as <code>g</code> to the
-power of <code>x</code>. This is an elliptic curve operation, and basically, we multiply curve’s generator point by <code>x</code>. This is
-a notation you will often find for groups, but since elliptic curve is a group we can use it also here.</p>
-
-<h3>Key Generation : Generate Commitments and Broadcast</h3>
-
-<p>Then, each player computes a commitment to this value, and in the second round, publishes this commitment to all of the
-players in the group:</p>
-
-<p><img src="./te03.png" alt="Commitments Generated" /></p>
-
-<h3>Key Generation: Reveal encrypted &lsquo;x&rsquo;</h3>
-
-<p>Each player reveals <code>x</code> in an encrypted form, it’s <code>α</code> (alpha) below:</p>
-
-<p><img src="./te04.png" alt="Reveal encrypted X" /></p>
-
-<p>Encryption is done with the additively homomorphic encryption scheme we initialized in the set-up phase. What’s more,
-each player reveals the public key share, the decommitment key, and the zero-knowledge proof stating that all those
-values together make sense. This allows for a validation of the commitment, but also allows all players to see if all
-those shares that the player just revealed together makes some sense.</p>
-
-<p>So, the zero-knowledge proof says that there exists a number <code>x</code> such that curve’s generator point multiplied by <code>x</code>
-gives point <code>y</code>, and <code>y</code> is public at this moment because it was just revealed, and that if we decrypt the value α that
-we have just published — it’s the encrypted secret key — we’ll get that number <code>x</code>.</p>
-
-<p>Of course, it’s a zero-knowledge proof, so it is not possible to guess what <code>x</code> really is, but what we say here is
-that it lies in the range from (-q³, q³) , and since <code>q</code> is the cardinality of the elliptic curve, this range is
-really huge.</p>
-
-<h3>Key Generation: Generate ECDSA final key</h3>
-
-<p>All signers use the add operation of the additively homomorphic threshold scheme to produce the final t-ECDSA key, so
-all of the encrypted shares of x can be added:</p>
-
-<p><img src="./te05.png" alt="Now Generate Key" /></p>
-
-<p>We get the secret key in an encrypted form, all revealed public shares of y can be added, and as a result, we have the
-public key. Addition operation here is just addition of elliptic curve points, so it’s easy.</p>
-
-<h2>Signature</h2>
-
-<h3>Signature: Step 1 and 2</h3>
-
-<p>We have <code>α</code>, which is a t-ECDSA private key in encrypted form shared between all the signers, and we have <code>y</code> which is
-a t-ECDSA public key. Public keys are just a point on the elliptic curve.</p>
-
-<p><img src="./si00.png" alt="Start with t-ECDSA" /></p>
-
-<p>In the first round each party draws a random integer <code>ρ</code>:</p>
-
-<p><img src="./si02.png" alt="Round 1" /></p>
-
-<p>Encrypt the value with additively homomorphic threshold encryption scheme:</p>
-
-<p><img src="./si03.png" alt="Round 2" /></p>
-
-<p>Multiply the secret ECDSA key (<code>α</code> below) by this random value:</p>
-
-<p><img src="./si04.png" alt="Multiply" /></p>
-
-<p>Use addition to implement multiplication. Each signer publishes commitment to those values, and in the second round
-reveals all those values, along with the zero-knowledge proof, stating that they make sense:</p>
-
-<p><img src="./si05.png" alt="Multiply" /></p>
-
-<p>Using zero-knowledge proof and the commitment we can now prove that the values we have are correct.</p>
-
-<p>Join all the shares together (This means broadcast all the shares so that everybody has them):</p>
-
-<p>Reveal the commitments:</p>
-
-<p><img src="./si06.png" alt="Broadcast Shares and Join them together" /></p>
-
-<h3>Signature: Step 3 and 4</h3>
-
-<p>The same commit-reveal pattern is used in the 3rd and 4th round:</p>
-
-<p><img src="./si07.png" alt="Known at this point" /></p>
-
-<p>On the right side we have all the parameters that were evaluated so far, and all players have the same values.</p>
-
-<p>In the third round each party draws a random integer <code>kᵢ</code>:</p>
-
-<p><img src="./si08.png" alt="Draw random k-sub-i" /></p>
-
-<p>And a random integer <code>cᵢ</code>:</p>
-
-<p><img src="./si09.png" alt="Draw random c-sub-i" /></p>
-
-<p><code>q</code> all the time stands for the cardinality of the elliptic curve, so the number of points on the elliptic curve.</p>
-
-<p>Each party computes <code>rᵢ</code> as <code>g</code> to the power of <code>k</code> — we basically multiply curve generator point by it:</p>
-
-<p><img src="./si10.png" alt="Calculate r-sub-i" /></p>
-
-<p>Each party computes the parameter <code>w</code> which is <code>k</code> time <code>ρ</code> plus <code>c</code> times <code>q</code>:</p>
-
-<p><img src="./si11.png" alt="Calculate w" /></p>
-
-<p><code>q</code> all the time is the cardinality of the elliptic curve, and we can compute it because we use additively homomorphic
-threshold encryption.</p>
-
-<p>At the end, each party commits to all those parameters, and in the round 4 generated parameters are revealed, along with
-the zero-knowledge proof stating that they make sense together:</p>
-
-<p><img src="./si11a.png" alt="Zero Knowledge Proff of r and w are correct" /></p>
-
-<p>Having all those parameters from all the group members we can add them together, just like we did after the round 2. We
-sum up all <code>k</code> shares, all <code>c</code> shares, all <code>w</code> shares.  We evaluate parameter <code>r</code> as a sum of all <code>rᵢ</code> shares and
-we use a special hash function:</p>
-
-<p><img src="./si12.png" alt="Results of 3 and 4" /></p>
-
-<p>This is the standard ECDSA.  <code>x</code> is a point coordinate modulo the <code>q</code> elliptic curve order.</p>
-
-<h3>Signature: Step 5</h3>
-
-<p>All parameters on the right side are shared by all signers in the group.</p>
-
-<p>Now we need to do some discrete mathematics magic to produce a signature.
-Using all those parameters we have evaluated so far, and since we operate on encrypted data, the signature will be also
-encrypted.  But this is something we will deal in the final round 6.</p>
-
-<p><img src="./si15.png" alt="So Far" /></p>
-
-<p>The very first thing we need to do is that we execute a threshold decryption mechanism to have all the players decrypt
-the parameter <code>w</code> and assign this value to <code>η</code>:</p>
-
-<p><img src="./si16.png" alt="Get decrypted w" /></p>
-
-<p>Compute yet one parameter called <code>Ψ</code> which is multiplicative inverse of <code>η</code> modulo <code>q</code>, and <code>q</code> is all the time
-cardinality of the elliptic curve:</p>
-
-<p><img src="./si17.png" alt="Calcualte rho" /></p>
-
-<p>Having <code>m</code>, the hash of the message we are signing (or a hash of the transaction), we start evaluating the signature
-with the following equation:</p>
-
-<p><img src="./si18.png" alt="Calcualte m" /></p>
-
-<p><code>c</code> is the value we have just evaluated, and <code>u</code>, <code>r</code> and <code>v</code> are the parameters jointly evaluated by all the signers in
-previous rounds.</p>
-
-<p>So, since <code>u</code> is an encrypted <code>ρ</code>, and <code>v</code> is an encrypted <code>ρ</code> multiplied by the secret ECDSA key, we can do the
-following transformation:</p>
-
-<p><img src="./si19.png" alt="Transformation" /></p>
-
-<p>Replace <code>Ψ</code> with the value it represents, we will get the following equation:</p>
-
-<p><img src="./si20.png" alt="Eq" /></p>
-
-<p>Eliminate ρ, we get this:</p>
-
-<p><img src="./si21.png" alt="Eq" /></p>
-
-<p>This is the equation is for the standard ECDSA signature, where <code>k</code> is the cryptographically secure random integer,
-<code>n</code> is the message hash, <code>x</code> is our secret ECDSA key, and <code>r</code> is the curve generated point multiplied <code>k</code> times modulo
-<code>q</code>.</p>
-
-<p>All those equations were done on ciphertexts, so at the end our signature is also encrypted:</p>
-
-<p><img src="./si22.png" alt="Eq" /></p>
-
-<h3>Signature: Step 6 - Deal with encrypted results</h3>
-
-<p>All the players execute a threshold decryption mechanism to learn the value of <code>s</code>. And the decrypted value <code>s</code> and
-parameter <code>r</code> evaluated in round 4 together make the signature:</p>
-
-<p><img src="./si30.png" alt="Decrypt results get s and r" /></p>
+<ol>
+<li>Case with peer as a traitor.</li>
+<li>Case with leader as a traitor.</li>
+</ol>
+
+<p>No Solution w/ 3 generals and 1 traitor case.</p>
+
+<p>How many generals to tolerate 1 traitor.  Generals = 3, 1 traitor.   3m+1. &ndash; Or look at it as
+you have to have less than <sup>1</sup>&frasl;<sub>3</sub> traitors.</p>
+
+<p>Proof:  Assume that a solution exists.  12 Generals 4 Traitors.  Simulate each one.
+Determine that you don&rsquo;t have a distinct answer.   The lack of a unique solution
+means that you can&rsquo;t have this many.   Simulate with 12 and 5 &hellip; same result.
+Simulate with all cases with 12 and 3 - you can get a unique solution.</p>
+
+<p>Algorithm that works:</p>
+
+<ol>
+<li>0 Traitors - then everybody shares - all agree - all good</li>
+<li>M Traitors - less than <sup>1</sup>&frasl;<sub>3</sub> - sends order.   Record order.  Add up all the total number
+of orders - and when you have a set of answers.  Use majority.</li>
+</ol>
+
+<p>Demo of this with a traitor.</p>
+
+<p>2 traitors means you will need 7 generals.</p>
+
+<p>m = number of traitors.</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">Traitors</th>
+<th align="left">Order</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">m = 0</td>
+<td align="left">0</td>
+</tr>
+
+<tr>
+<td align="center">m = 1</td>
+<td align="left">n^2</td>
+</tr>
+
+<tr>
+<td align="center">m = 2</td>
+<td align="left">n^3</td>
+</tr>
+
+<tr>
+<td align="center">m = 3</td>
+<td align="left">n^4</td>
+</tr>
+</tbody>
+</table>
+
+<p>messages.</p>
+
+<p>In a practical sense then Ethereum with 11401 nodes as of today, you have to a lot of traitors ( 11401 devided by 3 )  to effect the
+system.  Since each node costs thousands (average of 18204.00) of dollars and effective attack on the system would cost <code>3800 * 18k</code> or about <code>$70</code> million in hardware to
+attack the system.</p>
+
+<h2>Practical Byzantine Fault Tolerance</h2>
+
+<p>For pBFT to work, we assume that the amount of malicious (lying) nodes in the network cannot simultaneously equal or
+exceed <sup>1</sup>&frasl;<sub>3</sub> of the total number of nodes during any one time of vulnerability. The larger the number of nodes in the
+system the more robust the system. With <code>n</code> nodes as long as at most (n-(<sup>1</sup>&frasl;<sub>3</sub>)) are malicious or faulty at the same time
+the pBFT algorithm provides both speed and safety.  Eventual consensus of the replies is achieved due to
+linearizability.</p>
+
+<p>Each round of pBFT consensus (called views) is in 4 distinct phases. This model follows more of a &ldquo;Commander and
+Lieutenant&rdquo; system than a pure Byzantine Generals’ Problem, where all generals are equal, due to the presence of a
+leader node. The phases are below.</p>
+
+<ol>
+<li>A client sends a request to the leader node to invoke a service operation.</li>
+<li>The leader node uses &ldquo;hear-say&rdquo; to multicasts the request to the other nodes.</li>
+<li>The nodes execute the request and then send a reply to the client.</li>
+<li>The client awaits f + 1 (f represents the maximum number of nodes that may be faulty) replies from different nodes with the same result. This result is the result of the operation.</li>
+</ol>
+
+<p>The requirements for the nodes are that they are deterministic and start in the same state. The final result is that all
+honest nodes come to an agreement on the order of the record and they either accept it or reject it.</p>
+
+<p>The leader node can be changed in a round robin type format during every view and can even be replaced with a protocol
+called view change if a specific amount of time has passed without the leader node multicasting the request. A
+majority of honest nodes can also decide whether a leader is faulty and remove them with the next leader in line as
+the replacement.</p>
+
+<p>The primary advantages of the pBFT model is its ability to provide transaction finality without the need for
+confirmations like in Proof-of-Work models. If a proposed block is agreed upon by the nodes in a pBFT system, then that
+block is final.   This addresses a lot of the energy usage concerns of Eth/BTC.</p>
+
+<p>The model only works well with small consensus group sizes and has a large amount of communication overhead.
+The paper mentions using digital signatures and MACs (Method Authentication Codes) for authenticating messages.
+This is extremely inefficient and will not scale. Also you can&rsquo;t prove the authenticity of the messages.
+Digital signatures are a better solution.</p>
 
 <h1>Copyright</h1>
 
